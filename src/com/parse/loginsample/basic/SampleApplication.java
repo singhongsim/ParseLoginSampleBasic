@@ -45,6 +45,5 @@ public class SampleApplication extends Application {
     // remove this line (and other related ParseTwitterUtils calls)
     ParseTwitterUtils.initialize(getString(R.string.twitter_consumer_key),
         getString(R.string.twitter_consumer_secret));
-    //helllo
   }
 }

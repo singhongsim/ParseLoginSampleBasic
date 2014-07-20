@@ -22,6 +22,7 @@
 package com.parse.loginsample.basic;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,7 +43,8 @@ public class SampleProfileActivity extends Activity {
   private TextView emailTextView;
   private TextView nameTextView;
   private Button loginOrLogoutButton;
-
+  private Button mapButton;
+  
   private ParseUser currentUser;
 
   @Override
@@ -54,8 +56,11 @@ public class SampleProfileActivity extends Activity {
     emailTextView = (TextView) findViewById(R.id.profile_email);
     nameTextView = (TextView) findViewById(R.id.profile_name);
     loginOrLogoutButton = (Button) findViewById(R.id.login_or_logout_button);
+    mapButton = (Button) findViewById(R.id.map_button);
     titleTextView.setText(R.string.profile_title_logged_in);
-
+    
+    
+    
     loginOrLogoutButton.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -72,8 +77,14 @@ public class SampleProfileActivity extends Activity {
         }
       }
     });
+    
   }
-
+  
+  public void sendMessage(View view){
+    Intent intent = new Intent(this, MainActivity.class);
+	startActivity(intent);
+  }
+  
   @Override
   protected void onStart() {
     super.onStart();
@@ -97,6 +108,7 @@ public class SampleProfileActivity extends Activity {
       nameTextView.setText(fullName);
     }
     loginOrLogoutButton.setText(R.string.profile_logout_button_label);
+    
   }
 
   /**
