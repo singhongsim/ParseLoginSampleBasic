@@ -1,10 +1,9 @@
 package com.parse.loginsample.basic;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,9 +13,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -32,6 +40,10 @@ public class MainActivity extends ActionBarActivity implements
 	 * {@link #restoreActionBar()}.
 	 */
 	private CharSequence mTitle;
+	
+	  static final LatLng HAMBURG = new LatLng(53.558, 9.927);
+	  static final LatLng KIEL = new LatLng(53.551, 9.993);
+	  private GoogleMap map;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +62,31 @@ public class MainActivity extends ActionBarActivity implements
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager
-				.beginTransaction()
-				.replace(R.id.container,
-						PlaceholderFragment.newInstance(position + 1)).commit();
+//		FragmentManager fragmentManager = getFragmentManager();
+//		fragmentManager
+//				.beginTransaction()
+//				.replace(R.id.container,
+//						PlaceholderFragment.newInstance(position + 1)).commit();
+		
+//		if(position == 0) {
+//			
+//		    map = ((MapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
+//		            .getMap();
+//		        Marker hamburg = map.addMarker(new MarkerOptions().position(HAMBURG)
+//		            .title("Hamburg"));
+//		        Marker kiel = map.addMarker(new MarkerOptions()
+//		            .position(KIEL)
+//		            .title("Kiel")
+//		            .snippet("Kiel is cool")
+//		            .icon(BitmapDescriptorFactory
+//		                .fromResource(R.drawable.ic_launcher)));
+//
+//		        // Move the camera instantly to hamburg with a zoom of 15.
+//		        map.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
+//
+//		        // Zoom in, animating the camera.
+//		        map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+//		}
 	}
 
 	public void onSectionAttached(int number) {

@@ -25,5 +25,6 @@
     <string name="map_text">Map_Text!</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_basic_map">BasicMapActivity</string>
 
 </resources>
